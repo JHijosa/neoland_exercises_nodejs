@@ -2,8 +2,38 @@ const http = require("http");
 const fs = require("fs");
 
 const server = http.createServer((request, response) => {
-    let path = `html${request.url}`;
     const PATH_HOME = "html/index.html";
+
+    let contentType;
+    let path;
+
+    const extension = request.url.split(".")[1];
+
+    switch (extension) {
+        case "html":
+            contentType = "text/html";
+            path = `./public/html${request.url}`;
+            break;
+        case "css":
+            contentType = "text/css";
+            path = `./public/css${request.url}`;
+            break;
+        case "js":
+            contentType = "text/javascript";
+            path = `./public/js${request.url}`;
+            break;
+        case "png":
+            contentType = "image/png";
+            path = `./public/img${request.url}`;
+            break;
+            // case "ico":
+            //     contentType = "text/javascript";
+            //     path = `./public/js${request.url}`;
+            //     break;
+
+        default:
+            path = "";
+    }
 
     fs.readFile(path, (error, data) => {
         if (error) {
@@ -19,7 +49,7 @@ const server = http.createServer((request, response) => {
                 }
             });
         } else {
-            response.writeHead(200, { "Content-Type": "text/html" });
+            response.writeHead(200, { "Content-Type": contentType });
             response.write(data);
             response.end();
         }
