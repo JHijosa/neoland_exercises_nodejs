@@ -1,8 +1,9 @@
 const http = require("http");
 const fs = require("fs");
+const log = require("./log");
 
 const server = http.createServer((request, response) => {
-    const PATH_HOME = "html/index.html";
+    const PATH_HOME = "./public/html/index.html";
 
     let contentType;
     let path;
@@ -27,12 +28,12 @@ const server = http.createServer((request, response) => {
             path = `./public/img${request.url}`;
             break;
             // case "ico":
-            //     contentType = "text/javascript";
-            //     path = `./public/js${request.url}`;
+            //     path = `./public/img${request.url}`;
+            //     contentType = "image/x-icon";
             //     break;
-
         default:
-            path = "";
+            path = PATH_HOME;
+            contentType = "text/html";
     }
 
     fs.readFile(path, (error, data) => {
@@ -54,19 +55,7 @@ const server = http.createServer((request, response) => {
             response.end();
         }
     });
-
-    let infoLog = `\n${request.method}|${new Date().toISOString()}|${
-    request.headers.host
-  }:${request.url}`;
-    fs.appendFile("server.log", infoLog, (error) => {
-        if (error) {
-            console.error(
-                "algo ha ido mal y no se ha podido añadir información al log"
-            );
-        } else {
-            console.log("log actualizado correctamente");
-        }
-    });
+    log.writeLog(request);
 });
 
 server.listen(1111);
