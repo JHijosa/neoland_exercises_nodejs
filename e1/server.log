@@ -169,3 +169,6 @@ GET|2021-01-24T20:37:15.139Z|localhost:1111:/index.html
 GET|2021-01-24T20:37:15.179Z|localhost:1111:/script.js
 GET|2021-01-24T20:37:15.301Z|localhost:1111:/logo-marca.png
 GET|2021-01-24T20:37:16.542Z|localhost:1111:/icono.png
+GET|2021-01-25T19:07:47.581Z|localhost:1111:/
+GET|2021-01-25T19:07:47.656Z|localhost:1111:/script.js
+GET|2021-01-25T19:07:47.721Z|localhost:1111:/logo-marca.png
