@@ -229,3 +229,61 @@ fetch("https://restcountries.eu/rest/v2/all")
     .catch((err) => {
         console.error(err);
     });
+
+// PAISES CON IDIOMA ESPAÑOL
+
+fetch("https://restcountries.eu/rest/v2/all")
+    .then((response) => {
+        console.log(response);
+        return response.json(); // transformamos la respuesta a formato JSON
+    })
+    .then((data) => {
+        // Punto donde modificar el DOM
+
+        const ul = document.querySelector("#spanish");
+        const countryList = data.filter(
+            (country) => country.languages[0].name === "Spanish"
+        );
+
+        function createLiElement(text) {
+            const li = document.createElement("li");
+            li.textContent = text;
+            return li;
+        }
+
+        for (let country of countryList) {
+            ul.appendChild(createLiElement(`${country.name}`));
+        }
+    })
+    .catch((err) => {
+        console.error(err);
+    });
+
+//PAISES CON IDIOMA INGLÉS
+
+fetch("https://restcountries.eu/rest/v2/all")
+    .then((response) => {
+        console.log(response);
+        return response.json(); // transformamos la respuesta a formato JSON
+    })
+    .then((data) => {
+        // Punto donde modificar el DOM
+
+        const ul = document.querySelector("#english");
+        const countryList = data.filter(
+            (country) => country.languages[0].name === "English"
+        );
+
+        function createLiElement(text) {
+            const li = document.createElement("li");
+            li.textContent = text;
+            return li;
+        }
+
+        for (let country of countryList) {
+            ul.appendChild(createLiElement(`${country.name}`));
+        }
+    })
+    .catch((err) => {
+        console.error(err);
+    });
