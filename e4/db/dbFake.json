@@ -1,1 +1,191 @@
-[{"id":1,"title":"Pulp Fiction","director":"Quentin Tarantino","genre":"Thriller","year":"1994"},{"id":2,"title":"El Padrino","director":"Francis Ford Coppola","genre":"Mafia","year":"1972"},{"id":3,"title":"La vita è bella","director":"Roberto Benigni","genre":"Drama","year":"1997"},{"id":4,"title":"El Club de la Lucha","director":"David Fincher","genre":"Thriller","year":"1999"}]
+[{
+        "id": 1,
+        "title": "Pulp Fiction",
+        "director": "Quentin Tarantino",
+        "genre": "Comedia",
+        "year": "1994",
+        "actors": [{
+                "id": 1,
+                "name": "John Travolta"
+            },
+            {
+                "id": 2,
+                "name": "Samuel L. Jackson"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "title": "El Padrino",
+        "director": "Francis Ford Coppola",
+        "genre": "Mafia",
+        "year": "1972",
+        "actors": [{
+                "id": 1,
+                "name": "Marlon Brando"
+            },
+            {
+                "id": 2,
+                "name": "Al Pacino"
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "title": "La vita è bella",
+        "director": "Roberto Benigni",
+        "genre": "Drama",
+        "year": "1997",
+        "actors": [{
+                "id": 1,
+                "name": "Roberto Benigni"
+            },
+            {
+                "id": 2,
+                "name": "Nicoletta Braschi"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "title": "El Club de la Lucha",
+        "director": "David Fincher",
+        "genre": "Thriller",
+        "year": "1999",
+        "actors": [{
+                "id": 1,
+                "name": "Edward Norton"
+            },
+            {
+                "id": 2,
+                "name": "Brad Pitt"
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "title": "El Señor de Los Anillos: El Retorno del Rey",
+        "director": "Peter Jackson",
+        "genre": "Fantastico",
+        "year": "2003"
+    },
+    {
+        "id": 6,
+        "title": "El Señor de Los Anillos: El Retorno del Rey",
+        "director": "Peter Jackson",
+        "genre": "Fantastico",
+        "year": "2003"
+    },
+    {
+        "id": 7,
+        "title": "El Señor de Los Anillos: El Retorno del Rey",
+        "director": "Peter Jackson",
+        "genre": "Fantastico",
+        "year": "2003"
+    },
+    {
+        "id": 8,
+        "title": "El Señor de Los Anillos: El Retorno del Rey",
+        "director": "Peter Jackson",
+        "genre": "Fantastico",
+        "year": "2003"
+    },
+    {
+        "id": 9,
+        "title": "El Señor de Los Anillos: El Retorno del Rey",
+        "director": "Peter Jackson",
+        "genre": "Fantastico",
+        "year": "2003"
+    },
+    {
+        "id": 10,
+        "title": "El Señor de Los Anillos: El Retorno del Rey",
+        "director": "Peter Jackson",
+        "genre": "Fantastico",
+        "year": "2003"
+    },
+    {
+        "id": 11,
+        "title": "El Señor de Los Anillos: El Retorno del Rey",
+        "director": "Peter Jackson",
+        "genre": "Fantastico",
+        "year": "2003"
+    },
+    {
+        "id": 12,
+        "title": "El Señor de Los Anillos: El Retorno del Rey",
+        "director": "Peter Jackson",
+        "genre": "Fantastico",
+        "year": "2003"
+    },
+    {
+        "id": 13,
+        "title": "El Señor de Los Anillos: El Retorno del Rey",
+        "director": "Peter Jackson",
+        "genre": "Fantastico",
+        "year": "2003"
+    },
+    {
+        "id": 14,
+        "title": "El Señor de Los Anillos: El Retorno del Rey",
+        "director": "Peter Jackson",
+        "genre": "Fantastico",
+        "year": "2003"
+    },
+    {
+        "id": 15,
+        "title": "El Señor de Los Anillos: El Retorno del Rey",
+        "director": "Peter Jackson",
+        "genre": "Fantastico",
+        "year": "2003"
+    },
+    {
+        "id": 16,
+        "title": "El Señor de Los Anillos: El Retorno del Rey",
+        "director": "Peter Jackson",
+        "genre": "Fantastico",
+        "year": "2003"
+    },
+    {
+        "id": 17,
+        "title": "El Señor de Los Anillos: El Retorno del Rey",
+        "director": "Peter Jackson",
+        "genre": "Fantastico",
+        "year": "2003"
+    },
+    {
+        "id": 18,
+        "title": "El Señor de Los Anillos: El Retorno del Rey",
+        "director": "Peter Jackson",
+        "genre": "Fantastico",
+        "year": "2003"
+    },
+    {
+        "id": 19,
+        "title": "El Señor de Los Anillos: El Retorno del Rey",
+        "director": "Peter Jackson",
+        "genre": "Fantastico",
+        "year": "2003"
+    },
+    {
+        "id": 20,
+        "title": "El Señor de Los Anillos: El Retorno del Rey",
+        "director": "Peter Jackson",
+        "genre": "Fantastico",
+        "year": "2003"
+    },
+    {
+        "id": 21,
+        "title": "El Señor de Los Anillos: El Retorno del Rey",
+        "director": "Peter Jackson",
+        "genre": "Fantastico",
+        "year": "2003"
+    },
+    {
+        "id": 22,
+        "title": "El Señor de Los Anillos: El Retorno del Rey",
+        "director": "Peter Jackson",
+        "genre": "Fantastico",
+        "year": "2003"
+    }
+]

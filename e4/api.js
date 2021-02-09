@@ -26,8 +26,8 @@ api.get("/api/films", (request, response) => {
 
 //GET UNA PELICULA
 
-api.get("/api/film", (request, response) => {
-    if (!request.query.id) {
+api.get("/api/film/:id", (request, response) => {
+    if (!request.params) {
         response.status(400).send({
             success: false,
             url: "/api/film",
@@ -39,7 +39,7 @@ api.get("/api/film", (request, response) => {
             if (err) throw err;
             const allFilms = JSON.parse(data);
             const oneFilm = {
-                id: Number.parseInt(request.query.id),
+                id: Number.parseInt(request.params.id),
             };
 
             const findFilm = allFilms.find((film) => film.id === oneFilm.id);
@@ -176,6 +176,146 @@ api.delete("/api/film", (request, response) => {
             });
         });
     }
+});
+
+// PUT
+
+api.put("/api/film/:id", (request, response) => {
+    fs.readFile(dbFake, (err, data) => {
+        if (err) throw err;
+        const allFilmsUpDate = JSON.parse(data);
+        allFilmsUpDate.forEach((film) => {
+            if (film.id === Number.parseInt(request.params.id)) {
+                // if (request.body.type) {
+                //     pokemon.type = request.body.type;
+                // }
+                film.title = request.body.title ? request.body.title : film.title;
+                film.director = request.body.director ?
+                    request.body.director :
+                    film.director;
+                film.genre = request.body.genre ? request.body.genre : film.genre;
+                film.year = request.body.year ? request.body.year : film.year;
+            }
+        });
+
+        fs.writeFile(dbFake, JSON.stringify(allFilmsUpDate), (err) => {
+            if (err) {
+                response.status(400).send({
+                    success: false,
+                    url: "/api/film",
+                    method: "PUT",
+                    message: "Fallo al modificar la pelicula",
+                    err: err,
+                });
+            } else {
+                response.status(201).send({
+                    success: true,
+                    url: "/api/film",
+                    method: "PUT",
+                    message: "Pelicula modificada correctamente",
+                    allFilmsUpDate: allFilmsUpDate,
+                });
+            }
+        });
+    });
+});
+
+// GET ACTORES DE UNA PELICULA
+
+api.get("/api/films/:id/actors", (request, response) => {
+    fs.readFile(dbFake, (err, data) => {
+        if (err) throw err;
+        const allFilms = JSON.parse(data);
+
+        const oneFilm = {
+            id: Number.parseInt(request.params.id),
+        };
+
+        const findFilm = allFilms.find((film) => film.id === oneFilm.id);
+
+        if (!findFilm) {
+            response.status(400).send({
+                success: false,
+                method: "GET",
+                message: "Film not found",
+            });
+        } else {
+            const filmActors = findFilm.actors;
+
+            response.status(200).send({
+                success: true,
+                message: "/api/pokemons",
+                method: "GET",
+                actors: filmActors,
+            });
+        }
+    });
+});
+
+// GET UN ACTOR DE UNA PELICULA
+
+api.get("/api/films/:id/actors/:actorsId", (request, response) => {
+    fs.readFile(dbFake, (err, data) => {
+        if (err) throw err;
+        const allFilms = JSON.parse(data);
+
+        const oneFilm = {
+            id: Number.parseInt(request.params.id),
+        };
+
+        const findFilm = allFilms.find((film) => film.id === oneFilm.id);
+
+        if (!findFilm) {
+            response.status(400).send({
+                success: false,
+                method: "GET",
+                message: "Film not found",
+            });
+        } else {
+            const filmActors = findFilm.actors;
+
+            const oneActor = {
+                id: Number.parseInt(request.params.actorsId),
+            };
+
+            const findActor = filmActors.find((actor) => actor.id === oneActor.id);
+
+            if (!findActor) {
+                response.status(400).send({
+                    success: false,
+                    method: "GET",
+                    message: "Location not found",
+                });
+            } else {
+                response.status(200).send({
+                    success: true,
+                    message: "/api/pokemons",
+                    method: "GET",
+                    actor: findActor,
+                });
+            }
+        }
+    });
+});
+
+// PAGINADO CON LIMIT Y OFFSET
+
+api.get("/api/films/pageoffset", (request, response) => {
+    fs.readFile(dbFake, (err, data) => {
+        if (err) throw err;
+        const allFilms = JSON.parse(data);
+        const limit = Number.parseInt(request.query.limit);
+        const offset = Number.parseInt(request.query.offset);
+
+        const pagefilms = allFilms.slice(offset, offset + limit);
+
+        response.status(200).send({
+            success: true,
+            message: "/api/films",
+            method: "GET",
+            pagePokemon: pagefilms,
+        });
+    });
 });
 
 api.listen(1004, () => {
