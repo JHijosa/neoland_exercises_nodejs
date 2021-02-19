@@ -50,7 +50,7 @@ api.get("/api/users/gender/:gender", (req, res) => {
                 users: usersByGender,
             });
         } else {
-            res.status(200).send({
+            res.status(400).send({
                 success: true,
                 message: "Usuarios por genero no encontrados",
             });
