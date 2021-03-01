@@ -1,8 +1,7 @@
 const express = require("express");
 const fs = require("fs");
 const bodyParser = require("body-parser");
-const { request, response } = require("express");
-const { off } = require("process");
+const formidable = require("formidable");
 
 const dbFake = "db/dbFake.json";
 
@@ -224,6 +223,31 @@ api.post("/api/film", (request, response) => {
             });
         });
     }
+});
+
+// POST IMAGENES
+
+app.post("/uploadFile", (request, response) => {
+    const form = new formidable.IncomingForm(); // Inicializamos formidable
+
+    // form.maxFileSize = 1024; // aumentar tamaño maximo permitido
+
+    form.parse(request); // parseamos la request para que formidable lo entienda
+
+    // evento que se ejecuta cuando comienza la subida
+    form.on("fileBegin", (name, file) => {
+        file.path = __dirname + "/public/images/" + file.name;
+    });
+
+    // evento que se ejecuta cuando termina la subida
+    form.on("file", (name, file) => {
+        console.log("Uploaded " + file.name);
+    });
+
+    // evento que se ejecuta al final del todo
+    form.on("end", () => {
+        response.redirect("/galeria");
+    });
 });
 
 //DELETE
